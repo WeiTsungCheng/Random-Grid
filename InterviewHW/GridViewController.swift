@@ -87,7 +87,14 @@ class GridViewController: UIViewController {
             verticalStackView.addArrangedSubview(action)
             
             action.button.addAction(UIAction(handler: { [weak self] action in
-                self?.removeFrame(m: i)
+                
+                guard let selectedCoordinate = self?.selectedCoordinate else {
+                    return
+                }
+                // 確定按鈕欄位是和選中的欄位是的同ㄧ行
+                guard i == selectedCoordinate.x else { return }
+                self?.unmarkField(m: selectedCoordinate.x, n: selectedCoordinate.y)
+                self?.removeFrame(m: selectedCoordinate.x)
             }), for: .touchUpInside)
             
         }
