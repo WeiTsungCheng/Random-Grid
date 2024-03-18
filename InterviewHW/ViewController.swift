@@ -45,10 +45,61 @@ class ViewController: UIViewController {
             
             let action = CustomActionView(coordinate: (i, coordinate.row))
             verticalStackView.addArrangedSubview(action)
+            
+            action.button.addAction(UIAction(handler: { [weak self] action in
+                self?.removeFrame(m: i)
+            }), for: .touchUpInside)
         }
         
     }
 
-
+    
+    func markField(m: Int, n: Int) {
+        findField(column: m, row: n)?.setTitle(text: "Select")
+    }
+    
+    func unmarkField(m: Int, n: Int) {
+        findField(column: m, row: n)?.setTitle(text: "")
+    }
+    
+    private func findField(column: Int, row: Int) -> CustomFieldView? {
+        
+        guard let verticals = horizontalStackView.arrangedSubviews as? [CustomVerticalStackView] else {
+            return nil
+        }
+        
+        let vertical = verticals.filter { stv in
+            stv.column == column
+        }
+        
+        let customFieldViews = vertical.first?.arrangedSubviews.filter { $0 is CustomFieldView } as? [CustomFieldView]
+        
+        let view = customFieldViews?.filter { view in
+            view.coordinate.row == row
+        }
+        
+        return view?.first
+    }
+    
+    
+    func removeFrame(m: Int) {
+        findVerticalStackCView(column: m)?.removeOuterFrame()
+    }
+    
+    func setFrame(m: Int) {
+        findVerticalStackCView(column: m)?.addOuterFrame()
+    }
+    
+    private func findVerticalStackCView(column: Int) -> CustomVerticalStackView? {
+        
+        guard let verticals = horizontalStackView.arrangedSubviews as? [CustomVerticalStackView] else {
+            return nil
+        }
+        
+        let vertical = verticals.filter { stv in
+            stv.column == column
+        }
+        return vertical.first
+    }
 }
 
