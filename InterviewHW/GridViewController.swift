@@ -31,9 +31,33 @@ class GridViewController: UIViewController {
         return stv
     }()
     
+    var selectedCoordinate: (x: Int, y: Int)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        viewModel.randomCoordinate = { [weak self] coordinate in
+          
+            if let selectedCoordinate = self?.selectedCoordinate {
+                self?.unmarkField(m: selectedCoordinate.x, n: selectedCoordinate.y)
+                self?.removeFrame(m: selectedCoordinate.x)
+            }
+            
+            self?.markField(m: coordinate.x, n: coordinate.y)
+            self?.setFrame(m: coordinate.x)
+            self?.selectedCoordinate = coordinate
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.startTimer(interval: 2, repeats: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel.stopTimer()
     }
     
     private func setupUI() {
@@ -65,6 +89,7 @@ class GridViewController: UIViewController {
             action.button.addAction(UIAction(handler: { [weak self] action in
                 self?.removeFrame(m: i)
             }), for: .touchUpInside)
+            
         }
     }
 
