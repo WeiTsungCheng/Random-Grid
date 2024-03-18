@@ -42,10 +42,12 @@ class GridViewController: UIViewController {
             if let selectedCoordinate = self?.selectedCoordinate {
                 self?.unmarkField(m: selectedCoordinate.x, n: selectedCoordinate.y)
                 self?.removeFrame(m: selectedCoordinate.x)
+                self?.unHighlightAction(m: selectedCoordinate.x)
             }
             
             self?.markField(m: coordinate.x, n: coordinate.y)
             self?.setFrame(m: coordinate.x)
+            self?.highlightAction(m: coordinate.x)
             self?.selectedCoordinate = coordinate
         }
     }
@@ -93,8 +95,10 @@ class GridViewController: UIViewController {
                 }
                 // 確定按鈕欄位是和選中的欄位是的同ㄧ行
                 guard i == selectedCoordinate.x else { return }
+                
                 self?.unmarkField(m: selectedCoordinate.x, n: selectedCoordinate.y)
                 self?.removeFrame(m: selectedCoordinate.x)
+                self?.unHighlightAction(m: selectedCoordinate.x)
             }), for: .touchUpInside)
             
         }
@@ -126,6 +130,29 @@ class GridViewController: UIViewController {
         }
         
         return view?.first
+    }
+    
+    func highlightAction(m: Int) {
+        findAction(column: m)?.backgroundColor = .blue
+    }
+    
+    func unHighlightAction(m: Int) {
+        findAction(column: m)?.backgroundColor = .white
+    }
+    
+    private func findAction(column: Int) -> CustomActionView? {
+        
+        guard let verticals = horizontalStackView.arrangedSubviews as? [CustomVerticalStackView] else {
+            return nil
+        }
+        
+        let vertical = verticals.filter { stv in
+            stv.column == column
+        }
+        
+        let customFieldViews = vertical.first?.arrangedSubviews.filter { $0 is CustomActionView } as? [CustomActionView]
+        
+        return customFieldViews?.first
     }
     
     
