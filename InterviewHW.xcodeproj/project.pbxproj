@@ -18,6 +18,7 @@
 		F421ACDF2BA6F15C00FB5380 /* CustomActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F421ACDE2BA6F15C00FB5380 /* CustomActionView.swift */; };
 		F421ACE12BA6F25200FB5380 /* CustomVerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F421ACE02BA6F25200FB5380 /* CustomVerticalStackView.swift */; };
 		F421ACE32BA7EBA400FB5380 /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F421ACE22BA7EBA400FB5380 /* GridViewModel.swift */; };
+		F421ACE52BA7EE4D00FB5380 /* EntranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F421ACE42BA7EE4D00FB5380 /* EntranceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		F421ACDE2BA6F15C00FB5380 /* CustomActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActionView.swift; sourceTree = "<group>"; };
 		F421ACE02BA6F25200FB5380 /* CustomVerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVerticalStackView.swift; sourceTree = "<group>"; };
 		F421ACE22BA7EBA400FB5380 /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
+		F421ACE42BA7EE4D00FB5380 /* EntranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			children = (
 				F421ACC22BA59A5C00FB5380 /* AppDelegate.swift */,
 				F421ACC42BA59A5C00FB5380 /* SceneDelegate.swift */,
+				F421ACE42BA7EE4D00FB5380 /* EntranceViewController.swift */,
 				F421ACC62BA59A5C00FB5380 /* GridViewController.swift */,
 				F421ACE22BA7EBA400FB5380 /* GridViewModel.swift */,
 				F421ACDB2BA6EDD900FB5380 /* CustomViews */,
@@ -171,6 +174,7 @@
 				F421ACDD2BA6EE9700FB5380 /* CustomFieldView.swift in Sources */,
 				F421ACE12BA6F25200FB5380 /* CustomVerticalStackView.swift in Sources */,
 				F421ACC52BA59A5C00FB5380 /* SceneDelegate.swift in Sources */,
+				F421ACE52BA7EE4D00FB5380 /* EntranceViewController.swift in Sources */,
 				F421ACE32BA7EBA400FB5380 /* GridViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,7 +324,6 @@
 				INFOPLIST_FILE = InterviewHW/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -348,7 +351,6 @@
 				INFOPLIST_FILE = InterviewHW/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

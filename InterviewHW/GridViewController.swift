@@ -47,8 +47,8 @@ class GridViewController: UIViewController {
             make.trailing.equalTo(view.snp.trailingMargin).offset(-10)
         }
         
-        var m = viewModel.m
-        var n = viewModel.n
+        let m = viewModel.m
+        let n = viewModel.n
         
         for i in 1...m {
             let verticalStackView = CustomVerticalStackView(column: i)
