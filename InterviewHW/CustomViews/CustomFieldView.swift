@@ -46,7 +46,7 @@ class CustomFieldView: UIView {
             make.centerX.centerY.equalToSuperview()
         }
         
-        setTitle(text: "\(coordinate.column), \(coordinate.row)" )
+        setTitle(text: "")
     }
     
     func setTitle(text: String) {

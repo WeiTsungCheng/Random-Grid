@@ -52,7 +52,7 @@ class GridViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.startTimer(interval: 2, repeats: true)
+        viewModel.startTimer(interval: 10, repeats: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -102,7 +102,7 @@ class GridViewController: UIViewController {
 
     
     func markField(m: Int, n: Int) {
-        findField(column: m, row: n)?.setTitle(text: "Select")
+        findField(column: m, row: n)?.setTitle(text: "Random")
     }
     
     func unmarkField(m: Int, n: Int) {

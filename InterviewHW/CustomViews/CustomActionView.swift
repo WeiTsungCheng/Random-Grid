@@ -15,7 +15,7 @@ class CustomActionView: UIView {
    
     var button: UIButton = {
         var btn = UIButton()
-        btn.setTitle("OK", for: .normal)
+        btn.setTitle("確定", for: .normal)
         btn.setTitleColor(.black, for: .normal)
         return btn
     }()
