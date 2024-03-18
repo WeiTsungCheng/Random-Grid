@@ -8,9 +8,17 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
+class GridViewController: UIViewController {
     
-    var coordinate: (column: Int, row: Int) = (4, 3)
+    var viewModel: GridViewModel
+    init(viewModel: GridViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     var horizontalStackView: UIStackView = {
         var stv = UIStackView()
@@ -25,7 +33,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupUI()
+    }
+    
+    private func setupUI() {
+       
         self.view.backgroundColor = .white
         self.view.addSubview(horizontalStackView)
         horizontalStackView.snp.makeConstraints { make in
@@ -35,22 +47,25 @@ class ViewController: UIViewController {
             make.trailing.equalTo(view.snp.trailingMargin).offset(-10)
         }
         
-        for i in 1...coordinate.column {
+        var m = viewModel.m
+        var n = viewModel.n
+        
+        for i in 1...m {
             let verticalStackView = CustomVerticalStackView(column: i)
             horizontalStackView.addArrangedSubview(verticalStackView)
-            for j in 1...coordinate.row {
+            
+            for j in 1...n {
                 let field = CustomFieldView(coordinate: (i, j))
                 verticalStackView.addArrangedSubview(field)
             }
             
-            let action = CustomActionView(coordinate: (i, coordinate.row))
+            let action = CustomActionView(coordinate: (i, n))
             verticalStackView.addArrangedSubview(action)
             
             action.button.addAction(UIAction(handler: { [weak self] action in
                 self?.removeFrame(m: i)
             }), for: .touchUpInside)
         }
-        
     }
 
     
