@@ -16,7 +16,7 @@ class CustomActionView: UIView {
     var button: CustomButton = {
         var btn = CustomButton()
         btn.setTitle("確定", for: .normal)
-        btn.setTitleColor(.black, for: .normal)
+        btn.setTitleColor(.gray, for: .normal)
         return btn
     }()
     
@@ -39,13 +39,12 @@ class CustomActionView: UIView {
     }
     
     func setupUI() {
-        self.backgroundColor = .white
+        self.backgroundColor = .black
         addSubview(button)
-        layer.borderWidth = 2
-        layer.borderColor = UIColor.black.cgColor
     
         button.snp.makeConstraints { make in
-            make.centerX.centerY.equalToSuperview()
+            make.top.leading.equalToSuperview().offset(8)
+            make.bottom.trailing.equalToSuperview().offset(-8)
         }
     }
 }
@@ -57,15 +56,26 @@ class CustomButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.frame = frame
+        setupUI()
     }
     
     required init(column: Int) {
         super.init(frame: CGRect.zero)
         self.column = column
+        setupUI()
     }
     
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    private func setupUI() {
+        backgroundColor = .clear
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.gray.cgColor
+        layer.cornerRadius = 8
+    }
+    
+    
 }
 

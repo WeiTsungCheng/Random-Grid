@@ -39,8 +39,6 @@ class CustomFieldView: UIView {
     private func setupUI() {
         self.backgroundColor = .white
         addSubview(titleLabel)
-        layer.borderWidth = 2
-        layer.borderColor = UIColor.black.cgColor
         
         titleLabel.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()

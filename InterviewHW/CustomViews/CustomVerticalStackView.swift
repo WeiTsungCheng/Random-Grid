@@ -31,16 +31,15 @@ class CustomVerticalStackView: UIStackView {
     }
     
     private func setupUI() {
-        self.backgroundColor = .brown
         self.alignment = .fill
         self.distribution = .fillEqually
-        self.spacing = 0
+        self.spacing = 10
         self.axis = .vertical
     }
     
     func addOuterFrame() {
         layer.borderWidth = 2
-        layer.borderColor = UIColor.red.cgColor
+        layer.borderColor = UIColor.cyan.cgColor
     }
     
     func removeOuterFrame() {

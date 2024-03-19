@@ -22,11 +22,10 @@ class GridViewController: UIViewController {
     
     var horizontalStackView: UIStackView = {
         var stv = UIStackView()
-        stv.backgroundColor = .green
         stv.axis = .horizontal
         stv.alignment = .fill
         stv.distribution = .fillEqually
-        stv.spacing = 0
+        stv.spacing = 4
         
         return stv
     }()
@@ -75,13 +74,18 @@ class GridViewController: UIViewController {
         
         let m = viewModel.m
         let n = viewModel.n
-        
+        var colors: [UIColor] = []
+        for _ in 0..<n {
+            colors.append(Helper().randomColor())
+        }
+
         for i in 1...m {
             let verticalStackView = CustomVerticalStackView(column: i)
             horizontalStackView.addArrangedSubview(verticalStackView)
             
             for j in 1...n {
                 let field = CustomFieldView(coordinate: (i, j))
+                field.backgroundColor = colors[j-1]
                 verticalStackView.addArrangedSubview(field)
             }
             
@@ -137,11 +141,15 @@ class GridViewController: UIViewController {
     }
     
     func highlightAction(m: Int) {
-        findAction(column: m)?.backgroundColor = .blue
+        guard let field = findAction(column: m) else { return }
+        field.button.backgroundColor = .cyan
+        field.button.setTitleColor(.white, for: .normal)
     }
     
     func unHighlightAction(m: Int) {
-        findAction(column: m)?.backgroundColor = .white
+        guard let field = findAction(column: m) else { return }
+        field.button.backgroundColor = .clear
+        field.button.setTitleColor(.gray, for: .normal)
     }
     
     private func findAction(column: Int) -> CustomActionView? {

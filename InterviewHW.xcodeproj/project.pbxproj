@@ -19,6 +19,7 @@
 		F421ACE12BA6F25200FB5380 /* CustomVerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F421ACE02BA6F25200FB5380 /* CustomVerticalStackView.swift */; };
 		F421ACE32BA7EBA400FB5380 /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F421ACE22BA7EBA400FB5380 /* GridViewModel.swift */; };
 		F421ACE52BA7EE4D00FB5380 /* EntranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F421ACE42BA7EE4D00FB5380 /* EntranceViewController.swift */; };
+		F4D245C92BA9C18E001C629E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D245C82BA9C18E001C629E /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		F421ACE02BA6F25200FB5380 /* CustomVerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVerticalStackView.swift; sourceTree = "<group>"; };
 		F421ACE22BA7EBA400FB5380 /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
 		F421ACE42BA7EE4D00FB5380 /* EntranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceViewController.swift; sourceTree = "<group>"; };
+		F4D245C82BA9C18E001C629E /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				F421ACE42BA7EE4D00FB5380 /* EntranceViewController.swift */,
 				F421ACC62BA59A5C00FB5380 /* GridViewController.swift */,
 				F421ACE22BA7EBA400FB5380 /* GridViewModel.swift */,
+				F4D245C72BA9C174001C629E /* Helper */,
 				F421ACDB2BA6EDD900FB5380 /* CustomViews */,
 				F421ACCB2BA59A5E00FB5380 /* Assets.xcassets */,
 				F421ACCD2BA59A5E00FB5380 /* LaunchScreen.storyboard */,
@@ -89,6 +92,14 @@
 				F421ACE02BA6F25200FB5380 /* CustomVerticalStackView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		F4D245C72BA9C174001C629E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F4D245C82BA9C18E001C629E /* Helper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +183,7 @@
 				F421ACDF2BA6F15C00FB5380 /* CustomActionView.swift in Sources */,
 				F421ACC32BA59A5C00FB5380 /* AppDelegate.swift in Sources */,
 				F421ACDD2BA6EE9700FB5380 /* CustomFieldView.swift in Sources */,
+				F4D245C92BA9C18E001C629E /* Helper.swift in Sources */,
 				F421ACE12BA6F25200FB5380 /* CustomVerticalStackView.swift in Sources */,
 				F421ACC52BA59A5C00FB5380 /* SceneDelegate.swift in Sources */,
 				F421ACE52BA7EE4D00FB5380 /* EntranceViewController.swift in Sources */,

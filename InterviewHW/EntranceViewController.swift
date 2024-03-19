@@ -71,6 +71,7 @@ class EntranceViewController: UIViewController {
         
         let vm = GridViewModel(m: m, n: n)
         let vc = GridViewController(viewModel: vm)
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: false)
     }
 }
