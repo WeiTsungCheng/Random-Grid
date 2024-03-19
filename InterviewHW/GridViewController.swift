@@ -88,20 +88,24 @@ class GridViewController: UIViewController {
             let action = CustomActionView(coordinate: (i, n))
             verticalStackView.addArrangedSubview(action)
             
-            action.button.addAction(UIAction(handler: { [weak self] action in
-                
-                guard let selectedCoordinate = self?.selectedCoordinate else {
-                    return
-                }
-                // 確定按鈕欄位是和選中的欄位是的同ㄧ行
-                guard i == selectedCoordinate.x else { return }
-                
-                self?.unmarkField(m: selectedCoordinate.x, n: selectedCoordinate.y)
-                self?.removeFrame(m: selectedCoordinate.x)
-                self?.unHighlightAction(m: selectedCoordinate.x)
-            }), for: .touchUpInside)
-            
+            action.button.column = i
+            action.button.addTarget(self, action: #selector(selectColumn), for: .touchUpInside)
+        
         }
+    }
+    
+    @objc func selectColumn(_ sender: CustomButton) {
+        
+        guard let selectedCoordinate = selectedCoordinate else {
+            return
+        }
+        
+        // 確定按鈕欄位是和選中的欄位是的同ㄧ行
+        guard sender.column == selectedCoordinate.x else { return }
+        
+        unmarkField(m: selectedCoordinate.x, n: selectedCoordinate.y)
+        removeFrame(m: selectedCoordinate.x)
+        unHighlightAction(m: selectedCoordinate.x)
     }
 
     

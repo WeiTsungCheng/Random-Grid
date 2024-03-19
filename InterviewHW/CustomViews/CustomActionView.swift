@@ -13,8 +13,8 @@ class CustomActionView: UIView {
     
     var coordinate: (column: Int, row: Int) = (-1, -1)
    
-    var button: UIButton = {
-        var btn = UIButton()
+    var button: CustomButton = {
+        var btn = CustomButton()
         btn.setTitle("確定", for: .normal)
         btn.setTitleColor(.black, for: .normal)
         return btn
@@ -49,3 +49,23 @@ class CustomActionView: UIView {
         }
     }
 }
+
+
+class CustomButton: UIButton {
+    var column: Int = -1
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.frame = frame
+    }
+    
+    required init(column: Int) {
+        super.init(frame: CGRect.zero)
+        self.column = column
+    }
+    
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
